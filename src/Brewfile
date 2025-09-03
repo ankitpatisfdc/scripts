@@ -136,6 +136,7 @@ elsif OS.mac? then
     brew "go"
     brew "go-critic"
     brew "gojq"
+    brew "gonzo"
     brew "google-java-format"
     brew "gops"
     brew "gosec"
