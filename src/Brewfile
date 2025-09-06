@@ -125,6 +125,7 @@ elsif OS.mac? then
     brew "git-sizer"
     brew "gitg"
     brew "gitleaks"
+    brew "gnome-papers"
     brew "gnu-getopt"
     brew "gnu-indent"
     brew "gnu-sed"
