@@ -53,7 +53,6 @@ elsif OS.mac? then
     brew "cascadia"
     brew "cdk8s"
     brew "certigo"
-    brew "chatblade"
     brew "checkbashisms"
     brew "checkstyle"
     brew "chrome-cli"
