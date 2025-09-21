@@ -184,6 +184,7 @@ elsif OS.mac? then
     brew "jless"
     brew "johnnydep"
     brew "jq"
+    brew "jqp"
     brew "jsonlint"
     brew "jvm-mon"
     brew "jwt-cli"
