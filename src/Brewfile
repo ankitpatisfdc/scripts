@@ -124,6 +124,7 @@ elsif OS.mac? then
     brew "git-lfs"
     brew "git-sizer"
     brew "gitg"
+    brew "gitingest"
     brew "gitleaks"
     brew "gnome-papers"
     brew "gnu-getopt"
