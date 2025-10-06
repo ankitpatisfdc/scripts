@@ -121,6 +121,7 @@ elsif OS.mac? then
     brew "gh"
     brew "git"
     brew "git-delta"
+    brew "git-filter-repo"
     brew "git-lfs"
     brew "git-sizer"
     brew "gitg"
