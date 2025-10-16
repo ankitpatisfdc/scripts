@@ -158,6 +158,7 @@ elsif OS.mac? then
     brew "hck"
     brew "helm"
     brew "hexyl"
+    brew "highlight"
     brew "hof"
     brew "hoverfly"
     brew "howdoi"
