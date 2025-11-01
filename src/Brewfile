@@ -415,6 +415,7 @@ elsif OS.mac? then
     cask "font-code-new-roman-nerd-font"
     cask "gcloud-cli"
     cask "ghostty"
+    cask "gimp"
     cask "git-credential-manager"
     cask "google-chrome"
     cask "headlamp"
