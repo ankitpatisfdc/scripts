@@ -228,6 +228,7 @@ elsif OS.mac? then
     brew "lz4"
     brew "lzip"
     brew "m4"
+    brew "magika"
     brew "make"
     brew "man-db"
     brew "mandoc"
