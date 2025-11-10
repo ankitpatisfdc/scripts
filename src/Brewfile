@@ -195,6 +195,7 @@ elsif OS.mac? then
     brew "kops"
     brew "kotlin"
     brew "ksh93"
+    brew "ktea"
     brew "kube-linter"
     brew "kube-score"
     brew "kubecfg"
