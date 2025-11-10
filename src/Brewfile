@@ -238,6 +238,7 @@ elsif OS.mac? then
     brew "mat2"
     brew "maven"
     brew "maven-completion"
+    brew "mcat"
     brew "media-control"
     brew "mergiraf"
     brew "mesheryctl"
