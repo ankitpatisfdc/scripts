@@ -312,6 +312,7 @@ elsif OS.mac? then
     brew "rpm"
     brew "rsync"
     brew "ruff"
+    brew "rumdl"
     brew "rust"
     brew "rustc-completion"
     brew "sad"
