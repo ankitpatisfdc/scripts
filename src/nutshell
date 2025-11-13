@@ -47,7 +47,7 @@ do
 done
 
 # `sudo`, if available, is always the better option: it does not call a shell
-if [[ -n $(command -v sudo 2>/dev/null || :) ]]
+if [[ -n ${ command -v sudo 2>/dev/null || :; } ]]
 then
     exec sudo -u "$username" "${env4sudo[@]}" -- "$@"
 fi
@@ -55,10 +55,10 @@ fi
 # the following runs iff `sudo` is not available
 for env_key in "${env2exp[@]}"
 do
-    env4bashrc="$env4bashrc$(printf 'export %s=%q\n' "$env_key" "${!env_key}")"
+    env4bashrc="$env4bashrc${ printf 'export %s=%q\n' "$env_key" "${!env_key}"; }"
 done
 
-userhome="$(getent passwd "$username" | cut -d':' -f6)"
+userhome="${ getent passwd "$username" | cut --delimiter=':' --fields=6; }"
 printf '%s\n' "$env4bashrc" >> "$userhome/.bashrc"
 
 # `su` is a fallback; calls the login shell of the specified user

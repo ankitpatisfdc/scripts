@@ -7,7 +7,7 @@ me=${0##*/}
 git submodule update --init
 git submodule foreach "$me"
 
-dot_git="$(git rev-parse --git-dir)"
+dot_git=${ git rev-parse --git-dir; }
 
 for dot_git_item in \
     COMMIT_EDITMSG \

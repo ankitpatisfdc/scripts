@@ -34,8 +34,8 @@ rm --recursive --force "$venv_base"
 
 source "$venv_bin/activate"
 
-path_python=$(command -v python)
-path_pip=$(command -v pip)
+path_python=${ command -v python; }
+path_pip=${ command -v pip; }
 
 if [[ $path_python != "$venv_python" || $path_pip != "$venv_pip" ]]
 then

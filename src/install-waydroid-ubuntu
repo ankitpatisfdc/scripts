@@ -9,7 +9,7 @@ repo_path="/etc/apt/sources.list.d/$repo_name.list"
 keyring_url="$repo_url/$repo_name.gpg"
 keyring_path="/etc/apt/keyrings/${repo_name//:/_}.gpg"
 
-ubuntu_codename="$(grep ^UBUNTU_CODENAME= /etc/os-release | cut -d= -f2-)"
+ubuntu_codename="${ grep ^UBUNTU_CODENAME= /etc/os-release | cut --delimiter='=' --fields=2-; }"
 
 curl "$keyring_url" \
     --fail \

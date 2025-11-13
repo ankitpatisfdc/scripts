@@ -11,8 +11,9 @@ then
     exit 1
 fi
 
-numpages="$(gs -q -d'NODISPLAY' \
-               -c "($1) (r) file runpdfbegin pdfpagecount = quit")"
+numpages=${
+    gs -q -d'NODISPLAY' -c "($1) (r) file runpdfbegin pdfpagecount = quit"
+}
 
 if [[ -z "$numpages" ]]
 then
@@ -23,8 +24,8 @@ printf 'Processing %s pages...\n' "$numpages"
 
 for ((counter = 1; counter <= numpages; ++counter))
 do
-    newname="$(printf '%s\n' "$1" | sed 's/\.pdf//g')"
+    newname=${ printf '%s\n' "$1" | sed 's/\.pdf//g'; }
     newnamenum="$newname-$counter.pdf"
     yes | gs -d'BATCH' -s"OutputFile=$newnamenum" -d"FirstPage=$counter" \
-             -d"LastPage=$counter" -s'DEVICE=pdfwrite' "$1" >& '/dev/null'
+             -d"LastPage=$counter" -s'DEVICE=pdfwrite' "$1" >& /dev/null
 done

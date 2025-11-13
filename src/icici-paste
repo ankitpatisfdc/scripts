@@ -6,4 +6,4 @@ set -euo pipefail
 #
 # Named in honour of the stupid restrictions ICICI places on its web forms.
 
-exec xte "str $(xclip -o)"
+exec xte "str ${ xclip -o; }"

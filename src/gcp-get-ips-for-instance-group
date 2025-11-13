@@ -21,12 +21,13 @@ instance_group=$2
 
 gcloud compute instance-groups list-instances \
     --project="$gcp_project" "$instance_group" \
-    --region="$(\
+    --region="${
         gcloud compute instance-groups list \
             --project="$gcp_project" \
             --filter="name <= $instance_group AND name >= $instance_group" \
             --format='value(region.basename())' \
-    )" \
+        ;
+    }" \
     --format='value(instance.basename(),instance.segment(-3))' \
     | \
     while read -r name zone

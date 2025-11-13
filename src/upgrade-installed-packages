@@ -8,8 +8,8 @@ brew_forced_version_formulae=(
     postgresql
 )
 
-container_manager="$(command -v podman 2>/dev/null || :)"
-container_manager="${container_manager:-docker}"
+container_manager=${ command -v podman 2>/dev/null || :; }
+container_manager=${container_manager:-docker}
 
 CLOUDSDK_CORE_DISABLE_PROMPTS=1
 export CLOUDSDK_CORE_DISABLE_PROMPTS

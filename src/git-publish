@@ -21,7 +21,7 @@ do
     esac
 done
 
-if [[ -z $(git rev-parse --show-toplevel || :) ]]
+if [[ -z ${ git rev-parse --show-toplevel || :; } ]]
 then
     printf '%s: present directory must be in a Git repository\n' "$me"
     exit 1
@@ -29,7 +29,7 @@ fi
 
 if ((${#args[@]} == 0))
 then
-    curbranch="$(git symbolic-ref --short HEAD 2>/dev/null || :)"
+    curbranch="${ git symbolic-ref --short HEAD 2>/dev/null || :; }"
     if [[ -z $curbranch ]]
     then
         printf '%s: no branch checked out, and none specified\n' "$me"

@@ -52,7 +52,7 @@ readonly helm_secret_prefix
 helm_secret_postfix='[.]v[0-9]+$'
 readonly helm_secret_postfix
 
-secret_name=$(
+secret_name=${
     kubectl \
         --context="$context" \
         --namespace="$namespace" \
@@ -71,10 +71,10 @@ secret_name=$(
             )
         )
     ][-1]'
-)
+}
 readonly secret_name
 
-patched_release_blob=$(
+patched_release_blob=${
     kubectl \
         --context="$context" \
         --namespace="$namespace" \
@@ -85,7 +85,7 @@ patched_release_blob=$(
         --compact-output \
         '.info.status = "'"$desired_status"'"' |
     gzip | base64 --wrap=0 | base64 --wrap=0
-)
+}
 readonly patched_release_blob
 
 kubectl \

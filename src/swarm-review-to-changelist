@@ -14,13 +14,13 @@ declare -i swarm_review_number=10#$1
 
 curl \
     --silent \
-    --user "${P4USER:?must be set in env}:$(
+    --user "${P4USER:?must be set in env}:${
         p4 tickets |
         head --lines=1 |
         rev |
         cut --delimiter=' ' --fields=1 |
         rev
-    )" "${SWARM_HOST:?must be set in env}/api/v9/reviews/$swarm_review_number" |
+    }" "${SWARM_HOST:?must be set in env}/api/v9/reviews/$swarm_review_number" |
     jq \
         --raw-output \
         '.review.changes[0]'

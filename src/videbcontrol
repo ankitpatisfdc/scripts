@@ -4,18 +4,20 @@ set -euo pipefail
 
 # Edit control file inside DEBs to fix dependencies
 #
-# Credits: https://ubuntuforums.org/showthread.php?t=636724
+# Credits: https://web.archive.org/web/20240930114020/https://ubuntuforums.org/showthread.php?t=636724
 
-if [[ -z "$1" ]]; then
+if [[ -z $1 ]]
+then
     printf 'Syntax: %s debfile\n' "$0"
     exit 1
 fi
 
 DEBFILE="$1"
-TMPDIR="$(mktemp -d /tmp/deb.XXXXXXXXXX)" || exit 1
-OUTPUT="$(basename "$DEBFILE" .deb).modfied.deb"
+TMPDIR=${ mktemp -d /tmp/deb.XXXXXXXXXX; } || exit 1
+OUTPUT="${ basename "$DEBFILE" .deb; }.modfied.deb"
 
-if [[ -e "$OUTPUT" ]]; then
+if [[ -e $OUTPUT ]]
+then
     printf '%s exists.\n' "$OUTPUT"
     rm -r "$TMPDIR"
     exit 1
@@ -24,7 +26,8 @@ fi
 dpkg-deb -x "$DEBFILE" "$TMPDIR"
 dpkg-deb --control "$DEBFILE" "$TMPDIR/DEBIAN"
 
-if [[ ! -e "$TMPDIR/DEBIAN/control" ]]; then
+if [[ ! -e "$TMPDIR/DEBIAN/control" ]]
+then
     printf 'DEBIAN/control not found.\n'
 
     rm -r "$TMPDIR"
@@ -33,10 +36,11 @@ fi
 
 CONTROL="$TMPDIR/DEBIAN/control"
 
-MOD="$(stat -c "%y" "$CONTROL")"
+MOD=${ stat -c %y "$CONTROL"; }
 editor "$CONTROL" # use the default editor from Debian alternatives
 
-if [[ $MOD == "$(stat -c "%y" "$CONTROL")" ]]; then
+if [[ $MOD == "${ stat -c %y "$CONTROL"; }" ]]
+then
     printf 'Not modfied.\n'
 else
     printf 'Building new deb...\n'

@@ -12,12 +12,12 @@ then
     exit 1
 fi
 
-printf 'Change-Id: I%s\n' "$( \
+printf 'Change-Id: I%s\n' "${
     dd \
         if=/dev/urandom \
         bs="$(( (RANDOM_BITS_COUNT / 8) + ! !(RANDOM_BITS_COUNT % 8) ))" \
         count=1 \
     2>/dev/null \
-    | \
-    git hash-object --stdin \
-)"
+    |
+    git hash-object --stdin
+}"

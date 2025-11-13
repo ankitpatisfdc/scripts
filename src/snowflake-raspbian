@@ -5,7 +5,7 @@ set -euo pipefail
 # Run this script twice on a new system, as root. It reboots in the middle, and
 # picks up where it left off when run again after the reboot.
 
-if [[ -z $(command -v tmux 2>/dev/null || :) ]]
+if [[ -z ${ command -v tmux 2>/dev/null || :; } ]]
 then
     apt install -y tmux
     tmux new-session 'touch .hushlogin; apt dist-upgrade -y; apt autoremove -y; apt clean; systemctl reboot'

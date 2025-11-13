@@ -19,8 +19,7 @@ do
         error_users="$username, $error_users"
 done
 
-# shellcheck disable=SC2001
-error_users="$(printf '%s\n' "$error_users" | sed 's/, $//')"
+error_users=${error_users%, }
 
 if [[ -n $error_users ]]
 then

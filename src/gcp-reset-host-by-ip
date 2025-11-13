@@ -19,14 +19,18 @@ fi
 gcp_project="$1"
 gce_vm_ip="$2"
 
-gce_vm_name_zone_ip_csv="$(gcloud \
-    --project "$gcp_project" \
-    compute instances list \
-    --format 'csv(name,zone,networkInterfaces[0].networkIP)' | \
-    grep ",${gce_vm_ip//./\\.}\$" \
-)"
+gce_vm_name_zone_ip_csv=${
+    gcloud compute instances list \
+        --format='csv(name,zone,networkInterfaces[0].networkIP)' \
+        --project="$gcp_project" \
+    |
+    grep ",${gce_vm_ip//./\\.}\$"
+}
 
-gce_vm_name="$(cut -d, -f1 <<< "$gce_vm_name_zone_ip_csv")"
-gce_vm_zone="$(cut -d, -f2 <<< "$gce_vm_name_zone_ip_csv")"
+gce_vm_name=${ cut --delimiter=',' --fields=1 <<< "$gce_vm_name_zone_ip_csv"; }
+gce_vm_zone=${ cut --delimiter=',' --fields=2 <<< "$gce_vm_name_zone_ip_csv"; }
 
-gcloud --project "$gcp_project" compute instances reset --zone "$gce_vm_zone" "$gce_vm_name"
+gcloud compute instances reset "$gce_vm_name" \
+    --project="$gcp_project" \
+    --zone="$gce_vm_zone" \
+;

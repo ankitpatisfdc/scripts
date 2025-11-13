@@ -10,7 +10,7 @@ then
     exit 1
 fi
 
-if [[ -z $(git rev-parse --show-toplevel || :) ]]
+if [[ -z ${ git rev-parse --show-toplevel || :; } ]]
 then
     printf '%s: present directory must be in a Git repository\n' "$me"
     exit 2
