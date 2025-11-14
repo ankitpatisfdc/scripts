@@ -17,11 +17,8 @@ authorization_bearer_token=${
 }
 readonly authorization_bearer_token
 
-declare -i current_nanoseconds
-current_nanoseconds=${ date +%N; }
-current_nanoseconds=${current_nanoseconds##+(0)}
-readonly current_nanoseconds
-printf -v current_timestamp_milliseconds '%(%s)T%03u' -1 $((current_nanoseconds / 1000000))
+current_timestamp_milliseconds=${EPOCHREALTIME:0:-3}
+current_timestamp_milliseconds=${current_timestamp_milliseconds/.}
 readonly current_timestamp_milliseconds
 
 authentication_cookie=${
