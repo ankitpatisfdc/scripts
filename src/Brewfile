@@ -436,7 +436,6 @@ elsif OS.mac? then
     cask "visualvm"
     cask "vivaldi"
     cask "windsurf"
-    cask "zoom"
 end
 
 brew "actionlint"
