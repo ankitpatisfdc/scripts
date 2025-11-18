@@ -429,6 +429,7 @@ elsif OS.mac? then
     cask "maccy"
     cask "macsvg"
     cask "microsoft-edge"
+    cask "p4"
     cask "skim"
     cask "sqlcl"
     cask "utm"
