@@ -79,6 +79,7 @@ elsif OS.mac? then
     brew "dash-shell"
     brew "ddrescue"
     brew "dependency-check"
+    brew "devcockpit"
     brew "devspace"
     brew "diff-pdf"
     brew "diffoscope"
