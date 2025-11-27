@@ -294,6 +294,7 @@ elsif OS.mac? then
     brew "proctools"
     brew "proguard"
     brew "proselint"
+    brew "pv"
     brew "pwgen"
     brew "pyenv"
     brew "pyenv-virtualenv"
