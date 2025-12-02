@@ -275,6 +275,7 @@ elsif OS.mac? then
     brew "opentofu"
     brew "oq"
     brew "osv-scanner"
+    brew "pandoc"
     brew "pdf2svg"
     brew "pdftk-java"
     brew "perl"
