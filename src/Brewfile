@@ -10,7 +10,6 @@ if OS.linux? then
 
 elsif OS.mac? then
     tap "snyk/tap"
-    tap "sourcegraph/src-cli"
 
     brew "ack"
     brew "act"
@@ -331,7 +330,6 @@ elsif OS.mac? then
     brew "snyk/tap/snyk"
     brew "snyk/tap/snyk-iac-rules"
     brew "socat"
-    brew "sourcegraph/src-cli/src-cli"
     brew "speedtest-cli"
     brew "sqlfluff"
     brew "sqlite-analyzer"
