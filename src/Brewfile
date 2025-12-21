@@ -476,6 +476,7 @@ brew "svgo"
 brew "tfenv"
 brew "tilt"
 brew "usage"
+brew "vacuum"
 brew "wrk"
 brew "xq"
 
