@@ -241,7 +241,6 @@ elsif OS.mac? then
     brew "mcat"
     brew "media-control"
     brew "mergiraf"
-    brew "mesheryctl"
     brew "mg"
     brew "minikube"
     brew "minio-mc"
