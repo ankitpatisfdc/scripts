@@ -187,6 +187,7 @@ elsif OS.mac? then
     brew "jq"
     brew "jqp"
     brew "jsonlint"
+    brew "just"
     brew "jvm-mon"
     brew "jwt-cli"
     brew "k6"
