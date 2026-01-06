@@ -14,6 +14,9 @@ container_manager=${container_manager:-docker}
 CLOUDSDK_CORE_DISABLE_PROMPTS=1
 export CLOUDSDK_CORE_DISABLE_PROMPTS
 
+pre_upgrade_perl_version=${ perl -E 'say $^V'; }
+readonly pre_upgrade_perl_version
+
 brew update --force
 brew upgrade
 
@@ -39,6 +42,14 @@ do
         brew install -- "${MAPFILE[0]}"
     fi
 done
+
+post_upgrade_perl_version=${ perl -E 'say $^V'; }
+readonly post_upgrade_perl_version
+
+if [[ $pre_upgrade_perl_version != "$post_upgrade_perl_version" ]]
+then
+    perl-local-lib-post-upgrade
+fi
 
 cpan-outdated --exclude-core -p |
     xargs --no-run-if-empty -- cpan --
