@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly me=${0##*/}
+
+if (($# != 0))
+then
+    printf 'Usage: %s\n' "$me" >&2
+    exit 1
+fi
+
+# shellcheck disable=SC2154
+rm --force --recursive -- "$PERL_LOCAL_LIB_ROOT"
+
+cpan -T Net::SSLeay
+
+cpan \
+    App::cpanminus \
+    App::cpanoutdated \
+    Cpanel::JSON::XS \
+    DBI \
+    Data::Printer \
+    File::Rename \
+    File::Slurp \
+    IO::Socket::SSL \
+    IPC::Run \
+    List::AllUtils \
+    Modern::Perl \
+    Net::IDN::Encode \
+    Net::IDN::Nameprep \
+    Perl::Critic \
+    Perl::Tidy \
+    Term::ReadKey \
+    Term::ReadLine::Gnu \
+    Text::CSV \
+    Time::HiRes \
+    URL::Encode \
+    YAML::XS \
+;
+
+PATH=${
+    grep \
+        --invert-match \
+        binutils \
+    <<<"${PATH//:/$'\n'}" \
+    |
+    paste \
+        --delimiters=':' \
+        --serial
+}
+
+cpan \
+    Crypt::JWT \
+    Unicode::GCString \
+;
