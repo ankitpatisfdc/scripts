@@ -484,6 +484,7 @@ brew "tftp-now"
 brew "tilt"
 brew "usage"
 brew "vacuum"
+brew "worktrunk"
 brew "wrk"
 brew "xq"
 
