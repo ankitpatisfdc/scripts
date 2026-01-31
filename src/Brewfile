@@ -229,6 +229,7 @@ elsif OS.mac? then
     brew "lz4"
     brew "lzip"
     brew "m4"
+    brew "mac-cleanup-go"
     brew "magika"
     brew "make"
     brew "man-db"
