@@ -19,6 +19,8 @@ readonly pre_upgrade_perl_version
 
 brew update --force
 brew upgrade
+brew outdated --formula --quiet |
+    xargs --max-args=1 --no-run-if-empty -- brew upgrade --
 
 for brew_forced_version_formula in "${brew_forced_version_formulae[@]}"
 do
@@ -113,6 +115,8 @@ then
     )
 
     brew upgrade --cask --greedy
+    brew outdated --cask --greedy --quiet |
+        xargs --max-args=1 --no-run-if-empty -- brew upgrade --cask --greedy --
     sudo --reset-timestamp
 
     gcloud components install "${gcloud_installed_components[@]}"
