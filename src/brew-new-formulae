@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+me=${0##*/}
+
+if (($# > 1))
+then
+    printf 'Usage: %s [days]\n' "$me"
+    exit 1
+fi
+
+days=${1:-2}
+
+if [[ $days != +([0-9]) ]]
+then
+    printf '%s: days must be an integer\n' "$me"
+    exit 2
+fi
+
+declare -ir days
+
+cd ~/src/github.com/Homebrew/homebrew-core
+
+git remote update &>/dev/null
+
+git log origin/main \
+    --format=%s \
+    --grep=' (new formula)' \
+    --no-merges \
+    --since="-$days days" \
+|
+cut \
+    --delimiter=' ' \
+    --fields=1 \
+;
