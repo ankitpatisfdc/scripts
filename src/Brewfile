@@ -425,6 +425,7 @@ elsif OS.mac? then
     cask "headlamp"
     cask "iterm2"
     cask "jetbrains-toolbox"
+    cask "kitty"
     cask "libreoffice"
     cask "losslesscut"
     cask "maccy"
