@@ -494,6 +494,7 @@ brew "worktrunk"
 brew "wrk"
 brew "xq"
 
+vscode "anthropic.claude-code"
 vscode "aykutsarac.jsoncrack-vscode"
 vscode "bazelbuild.vscode-bazel"
 vscode "eamodio.gitlens"
