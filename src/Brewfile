@@ -54,6 +54,7 @@ elsif OS.mac? then
     brew "cdk8s"
     brew "certigo"
     brew "checkbashisms"
+    brew "checksec"
     brew "checkstyle"
     brew "chrome-cli"
     brew "chrome-export"
