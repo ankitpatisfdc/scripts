@@ -96,6 +96,7 @@ elsif OS.mac? then
     brew "dos2unix"
     brew "doxygen"
     brew "driftctl"
+    brew "droast"
     brew "dsq"
     brew "dyld-headers"
     brew "dylibbundler"
