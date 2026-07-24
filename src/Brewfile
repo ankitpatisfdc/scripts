@@ -415,6 +415,7 @@ elsif OS.mac? then
     brew "yq"
     brew "yt-dlp"
     brew "zchunk"
+    brew "zig"
     brew "zip"
     brew "zlib"
     brew "zlint"
