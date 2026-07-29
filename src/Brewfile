@@ -33,6 +33,7 @@ elsif OS.mac? then
     brew "aws-sam-cli"
     brew "aws-shell"
     brew "awscli"
+    brew "b3sum"
     brew "basex"
     brew "bash"
     brew "bash-completion@2"
