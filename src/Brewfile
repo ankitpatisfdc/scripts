@@ -115,6 +115,7 @@ elsif OS.mac? then
     brew "fits"
     brew "flake8"
     brew "flex"
+    brew "fluxcd"
     brew "forcecli"
     brew "fortio"
     brew "fselect"
