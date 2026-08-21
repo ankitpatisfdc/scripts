@@ -305,6 +305,7 @@ elsif OS.mac? then
     brew "proctools"
     brew "proguard"
     brew "proselint"
+    brew "pstree"
     brew "pv"
     brew "pwgen"
     brew "pyenv"
