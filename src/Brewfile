@@ -532,6 +532,7 @@ brew "weave"
 brew "worktrunk"
 brew "wrk"
 brew "xq"
+brew "ytt"
 brew "zx"
 brew "zxc"
 
