@@ -428,6 +428,7 @@ elsif OS.mac? then
     cask "1password"
     cask "1password-cli"
     cask "chatgpt"
+    cask "claude"
     cask "claude-code@latest"
     cask "cursor"
     cask "cursor-cli"
