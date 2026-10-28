@@ -108,6 +108,7 @@ elsif OS.mac? then
     brew "eslint"
     brew "expect"
     brew "eza"
+    brew "fastfetch"
     brew "fd"
     brew "file-formula"
     brew "findutils"
