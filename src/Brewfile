@@ -464,6 +464,7 @@ end
 
 brew "actionlint"
 brew "bazelisk"
+brew "blint"
 brew "buildifier"
 brew "buildozer"
 brew "bun"
