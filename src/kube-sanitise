@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+readonly me=${0##*/}
+
+readonly context=${1-}
+readonly namespace=${2-}
+
+if [[ -z $context ]]
+then
+    printf 'Usage: %s <context> [namespace]\n' "$me" >&2
+    exit 1
+fi
+
+declare -a kctl_args=(
+    --context="$context"
+)
+
+declare -a kctl_query=(
+    get pods
+        --field-selector='status.phase!=Pending,status.phase!=Running'
+)
+
+if [[ $namespace == 'all' || -z $namespace ]]
+then
+    kctl_args+=(
+        --all-namespaces
+    )
+    kctl_query+=(
+        --no-headers
+        --output='custom-columns=:.metadata.name,:.metadata.namespace'
+    )
+
+    readonly kctl_query
+
+    kubectl "${kctl_args[@]}" "${kctl_query[@]}" \
+    |
+    while read -r pod_name pod_namespace
+    do
+        kctl_args[-1]="--namespace=$pod_namespace"
+
+        kubectl \
+            "${kctl_args[@]}" \
+                delete pod \
+                    -- \
+                        "$pod_name"
+    done
+else
+    kctl_args+=(
+        --namespace="$namespace"
+    )
+    kctl_query+=(
+        --output=NAME
+    )
+
+    readonly kctl_args
+    readonly kctl_query
+
+    kubectl "${kctl_args[@]}" "${kctl_query[@]}" \
+    |
+    xargs \
+        --no-run-if-empty \
+        -- \
+            kubectl \
+                "${kctl_args[@]}" \
+                    delete \
+                        --
+fi
